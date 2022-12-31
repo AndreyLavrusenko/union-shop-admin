@@ -1,0 +1,66 @@
+@import 'src/style/color';
+
+.login {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    h2 {
+        font-family: 'Raleway', 'Helvetica', -apple-system, sans-serif;
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 28px;
+        color: $black;
+
+        margin: 50px 0 10px 0;
+    }
+
+    p {
+        font-family: 'Raleway', 'Helvetica', -apple-system, sans-serif;
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 18px;
+        color: rgba(0, 0, 0, 0.46);
+
+        margin: 10px 0;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+
+        margin-top: 40px;
+
+        input {
+            background: inherit;
+            border: 1.5px solid rgba(0, 0, 0, 0.35);
+            border-radius: 5px;
+
+            padding: 16px 20px;
+            margin-bottom: 15px;
+            width: 600px;
+        }
+
+        button {
+            border-radius: 10px;
+            background-color: $blue;
+            color: $white;
+            border: none;
+            cursor: pointer;
+
+            width: 350px;
+            padding: 16px 0;
+
+            position: relative;
+            top: 50px;
+
+            margin: 0 auto;
+        }
+
+        span {
+            color: $red;
+            font-size: 14px;
+            text-align: center;
+        }
+    }
+}

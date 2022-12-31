@@ -1,0 +1,26 @@
+@import "color";
+@import "font";
+
+html {
+    box-sizing: border-box;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: "Helvetica", -apple-system, sans-serif;
+    background-color: $background;
+    color: $black;
+}
+
+ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1450px;
+    margin: 0 auto;
+}
