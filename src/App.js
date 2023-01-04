@@ -8,6 +8,9 @@ import './style/normalize.scss'
 import Header from "./components/header/Header";
 import Login from "./pages/login/Login";
 import {adminAuthAPI} from "./api/api";
+import Admin from "./pages/admin/Admin";
+import CreateCategory from "./pages/create-category/CreateCategory";
+import CreateProduct from "./pages/create-product/CreateProduct";
 
 
 const App = () => {
@@ -32,6 +35,9 @@ const App = () => {
             <main className="container">
                 <Routes>
                     <Route path="/admin-login" element={<Login/>}/>
+                    <Route path="/" element={<Admin />}/>
+                    <Route path="/create-category" element={<CreateCategory />} />
+                    <Route path="/create-product" element={<CreateProduct />}/>
                 </Routes>
             </main>
         </div>

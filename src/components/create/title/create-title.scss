@@ -1,0 +1,50 @@
+@import 'src/style/color';
+
+.create-title {
+    text-align: center;
+
+    h2 {
+        font-family: 'Helvetica', -apple-system, sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 34px;
+
+        margin: 0;
+    }
+
+    p {
+        margin: 0;
+        font-family: 'Raleway', -apple-system, sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 18px;
+        color: $red;
+
+        opacity: 0.85;
+    }
+}
+
+.create-title-complete {
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 65px;
+
+    img {
+        margin-left: 9px;
+    }
+
+    h2 {
+        font-family: 'Helvetica', -apple-system, sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 34px;
+        margin: 0;
+
+    }
+}
