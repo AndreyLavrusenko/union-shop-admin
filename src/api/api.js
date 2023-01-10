@@ -52,3 +52,13 @@ export const adminCreateCardAPI = {
         } catch (err) {}
     }
 }
+
+
+export const adminGetCardAPI = {
+    // Получение карточек товара
+    getAllCardFromProduct: async () => {
+        try {
+            return await instance.get('product/all')
+        } catch (err) {}
+    }
+}

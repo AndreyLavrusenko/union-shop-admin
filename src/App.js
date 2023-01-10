@@ -11,6 +11,8 @@ import {adminAuthAPI} from "./api/api";
 import Admin from "./pages/admin/Admin";
 import CreateCategory from "./pages/create-category/CreateCategory";
 import CreateProduct from "./pages/create-product/CreateProduct";
+import CreateListProduct from "./pages/create-list-product/CreateListProduct";
+import AllProduct from "./pages/all-product/AllProduct";
 
 
 const App = () => {
@@ -38,6 +40,8 @@ const App = () => {
                     <Route path="/" element={<Admin />}/>
                     <Route path="/create-category" element={<CreateCategory />} />
                     <Route path="/create-product" element={<CreateProduct />}/>
+                    <Route path="/create-list-product" element={<CreateListProduct />}/>
+                    <Route path="/all-product" element={<AllProduct />}/>
                 </Routes>
             </main>
         </div>

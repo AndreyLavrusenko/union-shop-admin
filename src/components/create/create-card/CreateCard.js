@@ -64,9 +64,10 @@ const CreateCard = () => {
         await adminCreateCardAPI.createNewProduct(formData)
             .then(res => {
                 if (res.data.resultCode === 0) {
-                    navigate('/')
+                    navigate('/create-list-product')
                     localStorage.removeItem("newProduct")
                     localStorage.removeItem("create-card-admin")
+                    localStorage.setItem("uniqCode", res.data.uniqCode)
                 } else {
                     alert("Ошибка при сохранении")
                 }
