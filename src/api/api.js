@@ -37,3 +37,18 @@ export const adminAuthAPI = {
         } catch (err) {}
     }
 }
+
+
+export const adminCreateCardAPI = {
+    // Создание записи в таблице product
+    createNewProduct: async (data) => {
+        try {
+            return await instance.post('create/create-product', data, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                    token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
+                }
+            });
+        } catch (err) {}
+    }
+}
