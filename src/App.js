@@ -13,6 +13,8 @@ import CreateCategory from "./pages/create-category/CreateCategory";
 import CreateProduct from "./pages/create-product/CreateProduct";
 import CreateListProduct from "./pages/create-list-product/CreateListProduct";
 import AllProduct from "./pages/all-product/AllProduct";
+import CreateProductDetails from "./pages/create-product-details/CreateProductDetails";
+import DeleteProduct from "./pages/delete-product/DeleteProduct";
 
 
 const App = () => {
@@ -40,8 +42,10 @@ const App = () => {
                     <Route path="/" element={<Admin />}/>
                     <Route path="/create-category" element={<CreateCategory />} />
                     <Route path="/create-product" element={<CreateProduct />}/>
+                    <Route path="/create-product-details/:id" element={<CreateProductDetails />}/>
                     <Route path="/create-list-product" element={<CreateListProduct />}/>
                     <Route path="/all-product" element={<AllProduct />}/>
+                    <Route path="/delete-product" element={<DeleteProduct />}/>
                 </Routes>
             </main>
         </div>

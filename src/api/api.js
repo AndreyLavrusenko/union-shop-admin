@@ -50,6 +50,28 @@ export const adminCreateCardAPI = {
                 }
             });
         } catch (err) {}
+    },
+
+    // Создание записи в таблице all_products
+    createNewAllProduct: async (data, id) => {
+        try {
+            return await instance.post(`create/create-all-product/${id}`, data, {
+                headers: {
+                    token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
+                }
+            })
+        } catch (err) {}
+    },
+
+    // Получение товаров из all_products по uniqCode
+    getNewAllProduct: async (id) => {
+        try {
+            return await instance.get(`create/get-all-product/${id}`, {
+                headers: {
+                    token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
+                }
+            })
+        } catch (err) {}
     }
 }
 
@@ -60,5 +82,33 @@ export const adminGetCardAPI = {
         try {
             return await instance.get('product/all')
         } catch (err) {}
+    },
+
+    getAllCardWithCategory: async (category, page) => {
+        const {data} = await instance.get(category
+            ? `product/shop?category=${category}`
+            : `product/shop?page=${page}`
+        )
+
+        return data
+    },
+}
+
+export const adminDeleteCardAPI = {
+    // Полное удаление товара (product, all_products)
+    deleteProduct: async (id) => {
+        await instance.delete(`remove/remove-product/${id}`, {
+            headers: {
+                token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
+            }
+        })
+    },
+    // Полное удаление товара только из all_products
+    deleteProductItem: async (id) => {
+        await instance.delete(`remove/remove-product-item/${id}`, {
+            headers: {
+                token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
+            }
+        })
     }
 }

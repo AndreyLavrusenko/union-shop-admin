@@ -6,7 +6,6 @@ const CreateCardInput = ({productInfo, onChange, loadArrImageSize, uploadedFiles
         <div className="card__product-form">
             <input type="text" name={"name"} value={productInfo.name} onChange={onChange} placeholder={"Название товара"} className="card__product-input"/>
             <input type="text" name={"description"} value={productInfo.description} onChange={onChange} placeholder={"Описание товара"} className="card__product-input"/>
-            {/*<input type="text" name={"category"} value={productInfo.category} onChange={onChange} placeholder={"Категория товара"} className="card__product-input"/>*/}
             <input type="text" name={"exactCategory"} value={productInfo.exactCategory} onChange={onChange} placeholder={"Точная категория"} className="card__product-input"/>
 
             <div className="card__product-color">
@@ -61,8 +60,8 @@ const CreateCardInput = ({productInfo, onChange, loadArrImageSize, uploadedFiles
                 <div className="input-deps">
                     <div className="card__product-round"/>
                     <div className="card__product-sizePreview">
-                        {uploadedFilesSize.map(img => (
-                            <img src={URL.createObjectURL(img)} alt=""/>
+                        {uploadedFilesSize.map((img, i) => (
+                            <img key={i} src={URL.createObjectURL(img)} alt=""/>
                         ))}
                     </div>
                 </div>

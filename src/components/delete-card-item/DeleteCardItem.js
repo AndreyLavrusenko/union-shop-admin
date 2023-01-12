@@ -1,11 +1,26 @@
-import React from 'react';
-import {NavLink} from "react-router-dom";
+import React, {useState} from 'react';
+import Modal from "../modal/Modal";
+import './delete-card-item.scss'
+import {adminDeleteCardAPI} from "../../api/api";
+
+const DeleteCardItem = ({backgroundcolor, color, subColor, image, subtitle, title, isLogo, id, setUpdateDelete}) => {
+    const [active, setModalActive] = useState(false)
+    const [activeId, setActiveId] = useState(null)
 
 
-const AllCardItem = ({backgroundcolor, color, subColor, image, subtitle, title, isLogo, id, link}) => {
+    const onClick = () => {
+        setModalActive(true)
+        setActiveId(id)
+    }
+
+    const deleteProduct = async (id) => {
+        await adminDeleteCardAPI.deleteProduct(id)
+        setModalActive(false)
+        setUpdateDelete(prev => !prev)
+    }
 
     return (
-        <NavLink to={`${link}${id}`} key={id} className={"stripe__card"} style={{backgroundColor: backgroundcolor, color: color}}>
+        <div onClick={onClick} className={"stripe__card"} style={{backgroundColor: backgroundcolor, color: color}}>
             <div className="stripe__card__header">
                 <div className="stripe__header__title">{title}</div>
                 <div className="stripe__header__subtitle"
@@ -64,8 +79,9 @@ const AllCardItem = ({backgroundcolor, color, subColor, image, subtitle, title, 
             <div className="stripe__card__content">
                 <img src={process.env.REACT_APP_BACK_URL + image} alt={title}/>
             </div>
-        </NavLink>
+            <Modal deleteProduct={deleteProduct} active={active} activeId={activeId} setModalActive={setModalActive}/>
+        </div>
     )
 };
 
-export default AllCardItem;
+export default DeleteCardItem;

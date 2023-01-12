@@ -5,8 +5,10 @@
 
   .stripe__card {
     margin-bottom: 20px;
-    margin-right: 50px;
+    margin-right: 40px;
     margin-top: 25px;
+
+    transition: .5s;
   }
 
   &__card {
@@ -55,13 +57,9 @@
 
 .pagination {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   list-style: none;
   cursor: pointer;
-  position: absolute;
-  bottom: -60px;
-  left: 50%;
-  transform: translateX(-50%);
   margin-top: 60px;
 }
 
