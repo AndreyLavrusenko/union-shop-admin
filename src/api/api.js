@@ -15,14 +15,14 @@ const instance = axios.create({
 })
 
 
-
 export const adminAuthAPI = {
     // Вход в админку
     loginAdmin: async (user) => {
         try {
             const {data} = await instance.post('auth/admin-auth', user)
             return data
-        } catch (err) {}
+        } catch (err) {
+        }
     },
 
     // Проверяет подходит ли ключ администратора
@@ -34,7 +34,8 @@ export const adminAuthAPI = {
                 }
             })
             return data
-        } catch (err) {}
+        } catch (err) {
+        }
     }
 }
 
@@ -49,7 +50,8 @@ export const adminCreateCardAPI = {
                     token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
                 }
             });
-        } catch (err) {}
+        } catch (err) {
+        }
     },
 
     // Создание записи в таблице all_products
@@ -60,7 +62,8 @@ export const adminCreateCardAPI = {
                     token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
                 }
             })
-        } catch (err) {}
+        } catch (err) {
+        }
     },
 
     // Получение товаров из all_products по uniqCode
@@ -71,7 +74,8 @@ export const adminCreateCardAPI = {
                     token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
                 }
             })
-        } catch (err) {}
+        } catch (err) {
+        }
     }
 }
 
@@ -81,13 +85,18 @@ export const adminGetCardAPI = {
     getAllCardFromProduct: async () => {
         try {
             return await instance.get('product/all')
-        } catch (err) {}
+        } catch (err) {
+        }
     },
 
     getAllCardWithCategory: async (category, page) => {
         const {data} = await instance.get(category
-            ? `product/shop?category=${category}`
-            : `product/shop?page=${page}`
+                ? `get/shop-admin?category=${category}`
+                : `get/shop-admin?page=${page}`, {
+                headers: {
+                    token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
+                }
+            }
         )
 
         return data
@@ -106,6 +115,72 @@ export const adminDeleteCardAPI = {
     // Полное удаление товара только из all_products
     deleteProductItem: async (id) => {
         await instance.delete(`remove/remove-product-item/${id}`, {
+            headers: {
+                token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
+            }
+        })
+    }
+}
+
+
+export const adminGetProduct = {
+    // Получить товар по id
+    getProductById: async (id) => {
+        try {
+            return await instance.get(`product/product/${id}`)
+        } catch {
+        }
+    },
+
+    // Обновление состояния
+    updateVisibleTrue: async (id, status) => {
+        try {
+            return await instance.put(`create/update-visible/${id}`, {status}, {
+                headers: {
+                    token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
+                }
+            })
+        } catch {
+        }
+    },
+
+    getProductCategory: async () => {
+        return await instance.get('get/category-product', {
+            headers: {
+                token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
+            }
+        })
+    },
+
+    getCategoryItem: async () => {
+        return await instance.get('get/category-item', {
+            headers: {
+                token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
+            }
+        })
+    },
+
+    getCategoryName: async () => {
+        return await instance.get('get/category-name', {
+            headers: {
+                token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
+            }
+        })
+    }
+}
+
+
+export const adminUpdateCardAPI = {
+    changeCategoryType: async (number, category) => {
+        return await instance.put('put/change-category-type', {number, category}, {
+            headers: {
+                token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
+            }
+        })
+    },
+
+    changeCategoryInfo: async (number, info) => {
+        return await instance.put('put/change-category-info', {number, info}, {
             headers: {
                 token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
             }

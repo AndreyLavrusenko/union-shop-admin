@@ -37,7 +37,7 @@ const AllProduct = () => {
                     {products.map(item => {
                         return <AllCardItem
                             key={item.id}
-                            link={'/create-product-details/'}
+                            link={'/create-list-product/'}
                             id={item.uniqCode}
                             title={item.title}
                             subtitle={item.description}

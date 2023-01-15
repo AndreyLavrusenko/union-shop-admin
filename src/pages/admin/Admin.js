@@ -16,7 +16,7 @@ const Admin = () => {
             <ChoiceCard link={"/all-product"} title="Все товары" subtitle="Добавить данные" bgColor="#000001" color="#FAF4E6"/>
             <ChoiceCard link={"/delete-product"} title="Убрать" subtitle="Из магазина" bgColor="#000001" color="#FAF4E6"/>
             <ChoiceCard link={"/"} title="Редактировать" subtitle="Ассортимент" bgColor="#000001" color="#FAF4E6" fontSize={36}/>
-            <ChoiceCard link={"/"} title="Система" subtitle="Найстройки" bgColor="#000001" color="#FAF4E6" img={logo}/>
+            <ChoiceCard link={"/system/system-category"} title="Система" subtitle="Найстройки" bgColor="#000001" color="#FAF4E6" img={logo}/>
             <ChoiceCard link={"/"} title="Заказы" subtitle="Просмотреть заказы" bgColor="#FAF4E6" color="#000001" img={orders}/>
             <ChoiceCard link={"/"} title="Заявки" subtitle="Просмотреть заявки" bgColor="#FAF4E6" color="#000001" img={bid}/>
         </div>

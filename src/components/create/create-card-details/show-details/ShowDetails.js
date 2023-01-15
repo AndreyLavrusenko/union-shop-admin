@@ -5,8 +5,10 @@ const ShowDetails = ({product, isUpdateDelete}) => {
     const {title_product, color, size, count, price, id} = product
 
     const deleteItem = async (id) => {
-        await adminDeleteCardAPI.deleteProductItem(id)
-        isUpdateDelete(prev => !prev)
+        if (window.confirm("Вы действительно хотите удалить товар?")) {
+            await adminDeleteCardAPI.deleteProductItem(id)
+            isUpdateDelete(prev => !prev)
+        }
     }
 
     return (

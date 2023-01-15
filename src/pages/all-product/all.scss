@@ -113,7 +113,8 @@
     text-decoration: none;
     box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);
     border-radius: 18px;
-    min-width: 269px;
+    width: 269px;
+    max-width: 269px;
     height: 341px;
     cursor: pointer;
     padding: 10px;

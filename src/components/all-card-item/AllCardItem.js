@@ -5,7 +5,7 @@ import {NavLink} from "react-router-dom";
 const AllCardItem = ({backgroundcolor, color, subColor, image, subtitle, title, isLogo, id, link}) => {
 
     return (
-        <NavLink to={`${link}${id}`} key={id} className={"stripe__card"} style={{backgroundColor: backgroundcolor, color: color}}>
+        <NavLink to={`${link}`} onClick={() => localStorage.setItem("uniqCode", id)} key={id} className={"stripe__card"} style={{backgroundColor: backgroundcolor, color: color}}>
             <div className="stripe__card__header">
                 <div className="stripe__header__title">{title}</div>
                 <div className="stripe__header__subtitle"

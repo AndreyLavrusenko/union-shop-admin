@@ -15,6 +15,9 @@ import CreateListProduct from "./pages/create-list-product/CreateListProduct";
 import AllProduct from "./pages/all-product/AllProduct";
 import CreateProductDetails from "./pages/create-product-details/CreateProductDetails";
 import DeleteProduct from "./pages/delete-product/DeleteProduct";
+import OpenAccessProduct from "./pages/open-access-product/OpenAccessProduct";
+import CloseAccessProduct from "./pages/close-access-product/CloseAccessProduct";
+import CategorySystem from "./pages/system/category-system/CategorySystem";
 
 
 const App = () => {
@@ -39,13 +42,16 @@ const App = () => {
             <main className="container">
                 <Routes>
                     <Route path="/admin-login" element={<Login/>}/>
-                    <Route path="/" element={<Admin />}/>
-                    <Route path="/create-category" element={<CreateCategory />} />
-                    <Route path="/create-product" element={<CreateProduct />}/>
-                    <Route path="/create-product-details/:id" element={<CreateProductDetails />}/>
-                    <Route path="/create-list-product" element={<CreateListProduct />}/>
-                    <Route path="/all-product" element={<AllProduct />}/>
-                    <Route path="/delete-product" element={<DeleteProduct />}/>
+                    <Route path="/" element={<Admin/>}/>
+                    <Route path="/create-category" element={<CreateCategory/>}/>
+                    <Route path="/create-product" element={<CreateProduct/>}/>
+                    <Route path="/create-product-details/:id" element={<CreateProductDetails/>}/>
+                    <Route path="/create-list-product" element={<CreateListProduct/>}/>
+                    <Route path="/all-product" element={<AllProduct/>}/>
+                    <Route path="/delete-product" element={<DeleteProduct/>}/>
+                    <Route path="/open-access-product" element={<OpenAccessProduct/>}/>
+                    <Route path="/close-access-product" element={<CloseAccessProduct/>}/>
+                    <Route path="/system/system-category" element={<CategorySystem/>}/>
                 </Routes>
             </main>
         </div>
