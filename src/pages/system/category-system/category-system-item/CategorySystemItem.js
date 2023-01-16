@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 
-import stack from "../../../assets/img/icon/stack.svg";
-import not_done from '../../../assets/img/icon/not_done.svg'
-import done from '../../../assets/img/icon/done(button).svg'
+import stack from "../../../../assets/img/icon/stack.svg";
+import not_done from '../../../../assets/img/icon/not_done.svg'
+import done from '../../../../assets/img/icon/done(button).svg'
 
 
 const CategorySystemItem = ({categories_name, categories_desc, category, categoryNumber, number, updateCategory, updateCategoryInfo}) => {

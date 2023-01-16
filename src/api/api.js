@@ -76,6 +76,16 @@ export const adminCreateCardAPI = {
             })
         } catch (err) {
         }
+    },
+
+    createNewCategory: async (data) => {
+        try {
+            return await instance.put('create/create-new-category', data, {
+                headers: {
+                    token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
+                }
+            })
+        } catch {}
     }
 }
 
@@ -166,7 +176,20 @@ export const adminGetProduct = {
                 token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
             }
         })
-    }
+    },
+
+    getArchiveProduct: async (category, page) => {
+        const {data} = await instance.get(category
+                ? `/get/archive?category=${category}`
+                : `/get/archive?page=${page}`, {
+                headers: {
+                    token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
+                }
+            }
+        )
+
+        return data
+    },
 }
 
 
@@ -181,6 +204,39 @@ export const adminUpdateCardAPI = {
 
     changeCategoryInfo: async (number, info) => {
         return await instance.put('put/change-category-info', {number, info}, {
+            headers: {
+                token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
+            }
+        })
+    },
+
+    // Обновление состояния
+    updateTopState: async (id, status) => {
+        try {
+            return await instance.put(`put/remove-add-top/${id}`, {status}, {
+                headers: {
+                    token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
+                }
+            })
+        } catch {
+        }
+    },
+}
+
+
+export const adminOrders = {
+    getOrdersByType: async (type) => {
+        try {
+            return await instance.get(`get/orders-admin/${type}`, {
+                headers: {
+                    token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
+                }
+            })
+        } catch {}
+    },
+
+    getOrderById: async (id) => {
+        return await instance.get(`get/order-admin/${id}`, {
             headers: {
                 token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
             }

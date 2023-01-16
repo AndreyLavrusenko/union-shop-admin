@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Route, useNavigate, Routes} from "react-router-dom";
+import {adminAuthAPI} from "./api/api";
 
 
 import './style/global.scss'
@@ -7,7 +8,6 @@ import './style/normalize.scss'
 
 import Header from "./components/header/Header";
 import Login from "./pages/login/Login";
-import {adminAuthAPI} from "./api/api";
 import Admin from "./pages/admin/Admin";
 import CreateCategory from "./pages/create-category/CreateCategory";
 import CreateProduct from "./pages/create-product/CreateProduct";
@@ -18,6 +18,11 @@ import DeleteProduct from "./pages/delete-product/DeleteProduct";
 import OpenAccessProduct from "./pages/open-access-product/OpenAccessProduct";
 import CloseAccessProduct from "./pages/close-access-product/CloseAccessProduct";
 import CategorySystem from "./pages/system/category-system/CategorySystem";
+import Archive from "./pages/Archive/Archive";
+import AddToTop from "./pages/add-to-top/AddToTop";
+import QuickViewContainer from "./pages/quick-view/QuickViewContainer";
+import Orders from "./pages/orders/Orders";
+import OrderDetails from "./pages/order-details/OrderDetails";
 
 
 const App = () => {
@@ -48,10 +53,15 @@ const App = () => {
                     <Route path="/create-product-details/:id" element={<CreateProductDetails/>}/>
                     <Route path="/create-list-product" element={<CreateListProduct/>}/>
                     <Route path="/all-product" element={<AllProduct/>}/>
+                    <Route path="/archive" element={<Archive/>}/>
+                    <Route path="/add-to-top" element={<AddToTop/>}/>
+                    <Route path="/quick-view" element={<QuickViewContainer/>}/>
                     <Route path="/delete-product" element={<DeleteProduct/>}/>
                     <Route path="/open-access-product" element={<OpenAccessProduct/>}/>
                     <Route path="/close-access-product" element={<CloseAccessProduct/>}/>
                     <Route path="/system/system-category" element={<CategorySystem/>}/>
+                    <Route path="/orders" element={<Orders/>}/>
+                    <Route path="/order-details/:id" element={<OrderDetails/>}/>
                 </Routes>
             </main>
         </div>

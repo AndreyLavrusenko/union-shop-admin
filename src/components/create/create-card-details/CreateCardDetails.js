@@ -70,7 +70,7 @@ const CreateCardDetails = () => {
             </form>
             <div className="create__card-flex">
                 {madeProduct.map((product, index) => (
-                   <div style={{marginBottom: '50px'}} className="card__product-form" key={index}>
+                   <div style={{marginBottom: '100px'}} className="card__product-form" key={index}>
                        <ShowDetails isUpdateDelete={isUpdateDelete} product={product} />
                    </div>
                 ))}

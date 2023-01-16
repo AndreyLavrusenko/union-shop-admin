@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {adminGetProduct, adminUpdateCardAPI} from "../../../api/api";
 
-import CategorySystemItem from "./CategorySystemItem";
+import CategorySystemItem from "./category-system-item/CategorySystemItem";
 
-import './category-system.scss'
+import './category-system-item/category-system-item.scss'
 import '../system.scss'
+import CategorySystemNew from "./category-system-new/CategorySystemNew";
 
 
 const CategorySystem = () => {
@@ -17,6 +18,7 @@ const CategorySystem = () => {
     const [categoryName, setCategoryName] = useState([])
 
     const [loading, setLoading] = useState(true)
+    const [updateState, setUpdateState] = useState(false)
 
     // Меняет цвет фона
     useEffect(() => {
@@ -47,7 +49,7 @@ const CategorySystem = () => {
             setLoading(false)
         }
         getCategory()
-    }, [])
+    }, [updateState])
 
 
     const updateCategory = async (number, category) => {
@@ -96,6 +98,8 @@ const CategorySystem = () => {
                     categoryNumber={thirdCategory}
                     number={3}
                 />
+
+                <CategorySystemNew setUpdateState={setUpdateState} />
 
             </form>
         </div>
