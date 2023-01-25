@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
+import {adminCreateCardAPI} from "../../../../api/api";
 
 import './category-system-new.scss'
-import {adminCreateCardAPI} from "../../../../api/api";
+
 
 const CategorySystemNew = ({setUpdateState}) => {
     const [russianWord, setRussianWord] = useState("")

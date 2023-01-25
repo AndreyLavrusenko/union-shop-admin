@@ -6,10 +6,12 @@ import StatusProducts from "./status/statusProducts/StatusProducts";
 import StatusDetails from "./status/StatusDetails/StatusDetails";
 
 import './order-details.scss'
+import EditOrder from "./edit-order/EditOrder";
 
 const OrderDetails = () => {
     const {id} = useParams()
     const [orderData, setOrderData] = useState([])
+    const [updateOrder, setUpdateOrder] = useState(false)
 
 
     useEffect(() => {
@@ -18,7 +20,13 @@ const OrderDetails = () => {
             setOrderData(data)
         }
         getOrderInfo()
-    }, [])
+    }, [updateOrder])
+
+
+    const changeOrderStatus = async (id, value) => {
+        await adminOrders.updateOrderStatus(id, value)
+        setUpdateOrder(prev => !prev)
+    }
 
     if (orderData.length === 0) return
 
@@ -31,6 +39,7 @@ const OrderDetails = () => {
             </div>
 
             <StatusDetails orderDetails={orderData.result} />
+            <EditOrder changeOrderStatus={changeOrderStatus} orderDetails={orderData.result} />
         </div>
     );
 };

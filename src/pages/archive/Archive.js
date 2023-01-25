@@ -30,7 +30,6 @@ const Archive = () => {
         setPage(selectedPage)
     }
 
-    console.log(products)
 
     return (
         <>

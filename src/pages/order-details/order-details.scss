@@ -167,6 +167,26 @@
     }
 }
 
+.edit__order {
+    margin-top: 50px;
+
+    button {
+        background: #000000;
+        border: 1px solid #000000;
+        border-radius: 8px;
+        color: white;
+        padding: 10px 15px;
+        cursor: pointer;
+
+        margin-right: 20px;
+    }
+
+    .edit__order-active {
+        background: #1468E7;
+        border: 1px solid #1468E7;
+    }
+}
+
 @media (max-width: 900px) {
     .status {
         padding-top: 40px;

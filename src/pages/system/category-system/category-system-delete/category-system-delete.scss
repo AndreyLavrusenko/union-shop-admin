@@ -1,0 +1,44 @@
+.system {
+
+    &__delete {
+        padding-top: 140px;
+
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        &-item {
+            font-size: 18px;
+            line-height: 18px;
+            opacity: .85;
+        }
+
+        &-wrapper {
+            padding-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 500px;
+
+            button {
+                margin-left: 20px;
+
+                background: #FAFAFF;
+                box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);
+                border-radius: 6px;
+                border: none;
+
+                padding: 7px 15px;
+                cursor: pointer;
+
+                transition: ease-in .2s;
+
+                &:hover {
+                    color: #FA00FF;
+                }
+            }
+        }
+    }
+
+}

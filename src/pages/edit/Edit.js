@@ -3,9 +3,9 @@ import {adminGetCardAPI} from "../../api/api";
 import AllCardItem from "../../components/all-card-item/AllCardItem";
 import ReactPaginate from "react-paginate";
 
-import './all.scss'
+import '../all-product/all.scss'
 
-const AllProduct = () => {
+const Edit = () => {
     const [products, setProducts] = useState([])
 
     const [page, setPage] = useState(0)
@@ -37,7 +37,7 @@ const AllProduct = () => {
                     {products.map(item => {
                         return <AllCardItem
                             key={item.id}
-                            link={'/create-list-product/'}
+                            link={'/edit/main-product'}
                             id={item.uniqCode}
                             title={item.title}
                             subtitle={item.description}
@@ -67,4 +67,4 @@ const AllProduct = () => {
     )
 };
 
-export default AllProduct;
+export default Edit;

@@ -129,6 +129,15 @@ export const adminDeleteCardAPI = {
                 token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
             }
         })
+    },
+
+    // Удаление категории из system
+    deleteCategorySystem: async (word) => {
+        await instance.delete(`remove/remove-category-item/${word}`, {
+            headers: {
+                token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
+            }
+        })
     }
 }
 
@@ -221,6 +230,18 @@ export const adminUpdateCardAPI = {
         } catch {
         }
     },
+
+    updateCardProduct: async (id, data) => {
+        try {
+            return await instance.put(`put/update-product-info`, {id, data}, {
+                headers: {
+                    token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
+                }
+            })
+        } catch (e) {
+            console.log(e)
+        }
+    }
 }
 
 
@@ -237,6 +258,14 @@ export const adminOrders = {
 
     getOrderById: async (id) => {
         return await instance.get(`get/order-admin/${id}`, {
+            headers: {
+                token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
+            }
+        })
+    },
+
+    updateOrderStatus: async (id, value) => {
+        return await instance.put(`put/update-order-status`, {id, value}, {
             headers: {
                 token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
             }

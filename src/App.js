@@ -18,11 +18,13 @@ import DeleteProduct from "./pages/delete-product/DeleteProduct";
 import OpenAccessProduct from "./pages/open-access-product/OpenAccessProduct";
 import CloseAccessProduct from "./pages/close-access-product/CloseAccessProduct";
 import CategorySystem from "./pages/system/category-system/CategorySystem";
-import Archive from "./pages/Archive/Archive";
+import Archive from "./pages/archive/Archive";
 import AddToTop from "./pages/add-to-top/AddToTop";
 import QuickViewContainer from "./pages/quick-view/QuickViewContainer";
 import Orders from "./pages/orders/Orders";
 import OrderDetails from "./pages/order-details/OrderDetails";
+import Edit from "./pages/edit/Edit";
+import EditMainProduct from "./pages/edit/EditMainProduct";
 
 
 const App = () => {
@@ -62,6 +64,8 @@ const App = () => {
                     <Route path="/system/system-category" element={<CategorySystem/>}/>
                     <Route path="/orders" element={<Orders/>}/>
                     <Route path="/order-details/:id" element={<OrderDetails/>}/>
+                    <Route path="/edit" element={<Edit/>} />
+                    <Route path="/edit/main-product" element={<EditMainProduct />}/>
                 </Routes>
             </main>
         </div>

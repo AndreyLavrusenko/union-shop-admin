@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {adminGetProduct, adminUpdateCardAPI} from "../../../api/api";
+import {adminDeleteCardAPI, adminGetProduct, adminUpdateCardAPI} from "../../../api/api";
 
 import CategorySystemItem from "./category-system-item/CategorySystemItem";
 
 import './category-system-item/category-system-item.scss'
 import '../system.scss'
 import CategorySystemNew from "./category-system-new/CategorySystemNew";
+import CategorySystemDelete from "./category-system-delete/CategorySystemDelete";
 
 
 const CategorySystem = () => {
@@ -19,6 +20,7 @@ const CategorySystem = () => {
 
     const [loading, setLoading] = useState(true)
     const [updateState, setUpdateState] = useState(false)
+    const [rerenderList, setRerenderList] = useState(false)
 
     // Меняет цвет фона
     useEffect(() => {
@@ -49,7 +51,7 @@ const CategorySystem = () => {
             setLoading(false)
         }
         getCategory()
-    }, [updateState])
+    }, [updateState, rerenderList])
 
 
     const updateCategory = async (number, category) => {
@@ -58,6 +60,14 @@ const CategorySystem = () => {
 
     const updateCategoryInfo = async (number, info) => {
         await adminUpdateCardAPI.changeCategoryInfo(number, info)
+    }
+
+    const removeSystem = async (e, word) => {
+        e.preventDefault()
+
+        await adminDeleteCardAPI.deleteCategorySystem(word)
+
+        setRerenderList(prev => !prev)
     }
 
 
@@ -100,6 +110,8 @@ const CategorySystem = () => {
                 />
 
                 <CategorySystemNew setUpdateState={setUpdateState} />
+
+                <CategorySystemDelete removeSystem={removeSystem} category={category} />
 
             </form>
         </div>
