@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-const EditOrder = ({orderDetails, changeOrderStatus}) => {
+const EditOrder = ({orderDetails, changeOrderStatus, saveTrackNumber}) => {
+    const [trackNumber, setTrackNumber] = useState(orderDetails[0].trackNumber ? orderDetails[0].trackNumber : "")
 
     const allStatuses = [
         ['performed', 'Оплачено'],
@@ -8,6 +9,11 @@ const EditOrder = ({orderDetails, changeOrderStatus}) => {
         ['delivered', 'Доствлено'],
         ['received', 'Получено']
     ]
+
+    const changeTrackNumber = e => {
+        setTrackNumber(e.target.value)
+    }
+
 
 
     return (
@@ -27,6 +33,15 @@ const EditOrder = ({orderDetails, changeOrderStatus}) => {
                     )
                 }
             })}
+            <div>
+                <input
+                    type="text"
+                    placeholder="Трек номер заказа"
+                    onBlur={() => saveTrackNumber(orderDetails[0].id, trackNumber)}
+                    onChange={changeTrackNumber}
+                    value={trackNumber}
+                />
+            </div>
         </div>
     );
 };

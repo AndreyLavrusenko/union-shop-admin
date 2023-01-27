@@ -10,6 +10,7 @@ const OrderItem = ({item}) => {
                 <div><span>Способ получения:</span>{item.deliveryType === 'delivery' ? "Доставка" : "Самовывоз"}</div>
                 <div><span>Тип доставки:</span>{item.deliverTypeDetails}</div>
                 <div><span>Email:</span>{item.email}</div>
+                {item.trackNumber ? <div><span>Трек номер:</span>{item.trackNumber}</div> : null}
             </div>
         </NavLink>
     );

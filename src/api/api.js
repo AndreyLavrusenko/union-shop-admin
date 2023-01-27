@@ -241,6 +241,14 @@ export const adminUpdateCardAPI = {
         } catch (e) {
             console.log(e)
         }
+    },
+
+    updateProductItemInfo: async (id, data) => {
+        return await instance.put(`put/update-product-item-info`, {id, data}, {
+            headers: {
+                token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
+            }
+        })
     }
 }
 
@@ -266,6 +274,14 @@ export const adminOrders = {
 
     updateOrderStatus: async (id, value) => {
         return await instance.put(`put/update-order-status`, {id, value}, {
+            headers: {
+                token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
+            }
+        })
+    },
+
+    updateOrderTrackNumber: async (id, value) => {
+        return await instance.put('put/update-order-track-number', {id, value}, {
             headers: {
                 token: `Bearer ${localStorage.getItem("unionAdminKey9512")}`
             }

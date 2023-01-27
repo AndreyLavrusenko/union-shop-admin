@@ -2,6 +2,7 @@ import React from 'react';
 
 const CreateDetails = ({onChange, productInfo}) => {
 
+
     return (
         <>
             <input value={productInfo.productName} name="productName" onChange={onChange} type="text" required

@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import CreateDetails from "./create-details/CreateDetails";
+import ShowDetails from "./show-details/ShowDetails";
+import {adminCreateCardAPI} from "../../../api/api";
 
 import '../create-card/create-card-input/create-card-input.scss'
 import './create-card-details.scss'
-import {adminCreateCardAPI} from "../../../api/api";
-import ShowDetails from "./show-details/ShowDetails";
 
 const CreateCardDetails = () => {
     const {id} = useParams();

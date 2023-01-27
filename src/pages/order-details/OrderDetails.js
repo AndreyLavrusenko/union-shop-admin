@@ -28,6 +28,10 @@ const OrderDetails = () => {
         setUpdateOrder(prev => !prev)
     }
 
+    const saveTrackNumber = async (id, value) => {
+        await adminOrders.updateOrderTrackNumber(id, value)
+    }
+
     if (orderData.length === 0) return
 
 
@@ -39,7 +43,7 @@ const OrderDetails = () => {
             </div>
 
             <StatusDetails orderDetails={orderData.result} />
-            <EditOrder changeOrderStatus={changeOrderStatus} orderDetails={orderData.result} />
+            <EditOrder saveTrackNumber={saveTrackNumber} changeOrderStatus={changeOrderStatus} orderDetails={orderData.result} />
         </div>
     );
 };

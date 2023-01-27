@@ -185,6 +185,21 @@
         background: #1468E7;
         border: 1px solid #1468E7;
     }
+
+    input {
+        border: 2px solid #ACBCD5;
+        border-radius: 8px;
+        background-color: inherit;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 15px;
+
+        padding: 14px 11px;
+        width: 350px;
+
+        margin-top: 50px;
+        margin-bottom: 70px;
+    }
 }
 
 @media (max-width: 900px) {

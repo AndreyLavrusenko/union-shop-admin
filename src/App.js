@@ -25,6 +25,7 @@ import Orders from "./pages/orders/Orders";
 import OrderDetails from "./pages/order-details/OrderDetails";
 import Edit from "./pages/edit/Edit";
 import EditMainProduct from "./pages/edit/EditMainProduct";
+import EditProduct from "./pages/edit-product/EditProduct";
 
 
 const App = () => {
@@ -66,6 +67,7 @@ const App = () => {
                     <Route path="/order-details/:id" element={<OrderDetails/>}/>
                     <Route path="/edit" element={<Edit/>} />
                     <Route path="/edit/main-product" element={<EditMainProduct />}/>
+                    <Route path="/edit-product" element={<EditProduct />}/>
                 </Routes>
             </main>
         </div>
