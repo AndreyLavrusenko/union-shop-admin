@@ -9,8 +9,9 @@ const EditProductInput = ({product, index}) => {
         productColor: product.color ? product.color : "",
         productSize: product.size ? product.size : "",
         productPrice: product.price ? product.price : 0,
-        productCount: product.count ? product.count : 0
-    })
+        productCount: product.count ? product.count : 0,
+        productDiscount: product.discount ? product.discount : 0
+    }) 
     const [isChanged, setIsChanged] = useState(false)
 
 
@@ -68,13 +69,20 @@ const EditProductInput = ({product, index}) => {
                             <label htmlFor={item + index}>{item}</label>
                         </div>
                     ))}
-
                 </div>
             </div>
 
-            <input value={productInfo.productPrice} onChange={onChange} name="productPrice" type="number"
-                   style={{marginTop: '15px'}} min={0} required placeholder={"Цена товара"} className="card__product-input"/>
-            <input value={productInfo.productCount} onChange={onChange} name="productCount" type="number" required
+            <label style={{marginTop: '15px'}} htmlFor="productPrice">Цена товара</label>
+            <input value={productInfo.productPrice} onChange={onChange} id={"productPrice"} name="productPrice" type="number"
+                   min={0} required placeholder={"Цена товара"} className="card__product-input"/>
+
+
+            <label htmlFor="productDiscount">Скидка на товар</label>
+            <input value={productInfo.productDiscount} onChange={onChange} id={"productDiscount"} name="productDiscount" type="number"
+                   min={0} required placeholder={"Скидака на товара"} className="card__product-input"/>
+
+            <label htmlFor="productCount">Штук в наличии</label>
+            <input value={productInfo.productCount} onChange={onChange} id="productCount" name="productCount" type="number" required
                    placeholder={"Штук в наличии"} min={0} className="card__product-input"/>
 
             <button
